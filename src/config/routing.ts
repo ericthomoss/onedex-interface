@@ -7,7 +7,6 @@ import * as ETHEREUM from './tokens/ethereum'
 import * as FUSE from './tokens/fuse'
 import * as HARMONY from './tokens/harmony'
 import * as HECO from './tokens/heco'
-import * as MOONRIVER from './tokens/moonriver'
 import * as PALM from './tokens/palm'
 
 type ChainTokenList = {
@@ -49,7 +48,6 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
   [ChainId.HARMONY]: [WNATIVE[ChainId.HARMONY]],
   [ChainId.HARMONY_TESTNET]: [WNATIVE[ChainId.HARMONY_TESTNET]],
   [ChainId.CELO]: [WNATIVE[ChainId.CELO]],
-  [ChainId.MOONRIVER]: [WNATIVE[ChainId.MOONRIVER]],
   [ChainId.PALM]: [WNATIVE[ChainId.PALM]],
   [ChainId.FUSE]: [WNATIVE[ChainId.FUSE]],
 }
@@ -113,16 +111,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     CELO.cBTC,
     CELO.WETH,
     CELO.WBTC,
-  ],
-  [ChainId.MOONRIVER]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.MOONRIVER],
-    MOONRIVER.USDC,
-    MOONRIVER.USDT,
-    MOONRIVER.WETH,
-    MOONRIVER.FRAX,
-    MOONRIVER.MIM,
-    MOONRIVER.BTC,
-    MOONRIVER.ROME,
   ],
   [ChainId.PALM]: [...WRAPPED_NATIVE_ONLY[ChainId.PALM], PALM.WETH, PALM.DAI],
   [ChainId.FUSE]: [...WRAPPED_NATIVE_ONLY[ChainId.FUSE], FUSE.USDC, FUSE.USDT, FUSE.WBTC, FUSE.WETH, FUSE.DAI],
@@ -271,26 +259,6 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     CELO.cEURO,
   ],
-  [ChainId.MOONRIVER]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.MOONRIVER],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.MOONRIVER],
-    // @ts-ignore TYPE NEEDS FIXING
-    MOONRIVER.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    MOONRIVER.BTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    MOONRIVER.MIM,
-    // @ts-ignore TYPE NEEDS FIXING
-    MOONRIVER.FRAX,
-    // @ts-ignore TYPE NEEDS FIXING
-    MOONRIVER.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    MOONRIVER.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    MOONRIVER.ROME,
-  ],
   [ChainId.PALM]: [...WRAPPED_NATIVE_ONLY[ChainId.PALM], PALM.WETH, PALM.DAI],
   [ChainId.FUSE]: [
     // @ts-ignore TYPE NEEDS FIXING
@@ -351,16 +319,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     CELO.cUSD,
     CELO.cEURO,
     CELO.cBTC,
-  ],
-  [ChainId.MOONRIVER]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.MOONRIVER],
-    MOONRIVER.USDC,
-    MOONRIVER.USDT,
-    MOONRIVER.WETH,
-    MOONRIVER.FRAX,
-    MOONRIVER.MIM,
-    MOONRIVER.BTC,
-    MOONRIVER.ROME,
   ],
   [ChainId.PALM]: [...WRAPPED_NATIVE_ONLY[ChainId.PALM], PALM.WETH, PALM.DAI],
   [ChainId.FUSE]: [...WRAPPED_NATIVE_ONLY[ChainId.FUSE], FUSE.USDC, FUSE.USDT, FUSE.WBTC, FUSE.WETH, FUSE.DAI],
