@@ -8,7 +8,6 @@ import * as FUSE from './tokens/fuse'
 import * as HARMONY from './tokens/harmony'
 import * as HECO from './tokens/heco'
 import * as MOONRIVER from './tokens/moonriver'
-import * as OKEX from './tokens/okex'
 import * as PALM from './tokens/palm'
 
 type ChainTokenList = {
@@ -49,8 +48,6 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
   [ChainId.HECO_TESTNET]: [WNATIVE[ChainId.HECO_TESTNET]],
   [ChainId.HARMONY]: [WNATIVE[ChainId.HARMONY]],
   [ChainId.HARMONY_TESTNET]: [WNATIVE[ChainId.HARMONY_TESTNET]],
-  [ChainId.OKEX]: [WNATIVE[ChainId.OKEX]],
-  [ChainId.OKEX_TESTNET]: [WNATIVE[ChainId.OKEX_TESTNET]],
   [ChainId.CELO]: [WNATIVE[ChainId.CELO]],
   [ChainId.MOONRIVER]: [WNATIVE[ChainId.MOONRIVER]],
   [ChainId.PALM]: [WNATIVE[ChainId.PALM]],
@@ -105,7 +102,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     HARMONY.WETH,
   ],
   [ChainId.HECO]: [...WRAPPED_NATIVE_ONLY[ChainId.HECO], HECO.DAI, HECO.USDC, HECO.USDT, HECO.WBTC, HECO.WETH],
-  [ChainId.OKEX]: [...WRAPPED_NATIVE_ONLY[ChainId.OKEX], OKEX.DAI, OKEX.USDC, OKEX.USDT, OKEX.WBTC, OKEX.WETH],
   [ChainId.CELO]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.CELO],
     CELO.cETH,
@@ -259,22 +255,6 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     HECO.DAI,
   ],
-  [ChainId.OKEX]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.OKEX],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.OKEX],
-    // @ts-ignore TYPE NEEDS FIXING
-    OKEX.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    OKEX.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    OKEX.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    OKEX.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    OKEX.DAI,
-  ],
   [ChainId.CELO]: [
     // @ts-ignore TYPE NEEDS FIXING
     ...WRAPPED_NATIVE_ONLY[ChainId.CELO],
@@ -362,7 +342,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     HARMONY.WETH,
   ],
   [ChainId.HECO]: [...WRAPPED_NATIVE_ONLY[ChainId.HECO], HECO.DAI, HECO.USDC, HECO.USDT, HECO.WBTC, HECO.WETH],
-  [ChainId.OKEX]: [...WRAPPED_NATIVE_ONLY[ChainId.OKEX], OKEX.DAI, OKEX.USDC, OKEX.USDT, OKEX.WBTC, OKEX.WETH],
   [ChainId.CELO]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.CELO],
     CELO.cETH,
