@@ -1,11 +1,9 @@
 // a list of tokens by chain
 import { ChainId, SUSHI, Token, WNATIVE } from '@sushiswap/core-sdk'
 
-import * as AVALANCHE from './tokens/avalanche'
 import * as BSC from './tokens/bsc'
 import * as CELO from './tokens/celo'
 import * as ETHEREUM from './tokens/ethereum'
-import * as FANTOM from './tokens/fantom'
 import * as FUSE from './tokens/fuse'
 import * as HARMONY from './tokens/harmony'
 import * as HECO from './tokens/heco'
@@ -47,16 +45,12 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
   [ChainId.RINKEBY]: [WNATIVE[ChainId.RINKEBY]],
   [ChainId.GÖRLI]: [WNATIVE[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WNATIVE[ChainId.KOVAN]],
-  [ChainId.FANTOM]: [WNATIVE[ChainId.FANTOM]],
-  [ChainId.FANTOM_TESTNET]: [WNATIVE[ChainId.FANTOM_TESTNET]],
   [ChainId.MATIC]: [WNATIVE[ChainId.MATIC]],
   [ChainId.MATIC_TESTNET]: [WNATIVE[ChainId.MATIC_TESTNET]],
   [ChainId.XDAI]: [WNATIVE[ChainId.XDAI]],
   [ChainId.BSC]: [WNATIVE[ChainId.BSC]],
   [ChainId.BSC_TESTNET]: [WNATIVE[ChainId.BSC_TESTNET]],
   [ChainId.MOONBEAM_TESTNET]: [WNATIVE[ChainId.MOONBEAM_TESTNET]],
-  [ChainId.AVALANCHE]: [WNATIVE[ChainId.AVALANCHE]],
-  [ChainId.AVALANCHE_TESTNET]: [WNATIVE[ChainId.AVALANCHE_TESTNET]],
   [ChainId.HECO]: [WNATIVE[ChainId.HECO]],
   [ChainId.HECO_TESTNET]: [WNATIVE[ChainId.HECO_TESTNET]],
   [ChainId.HARMONY]: [WNATIVE[ChainId.HARMONY]],
@@ -109,14 +103,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     MATIC.MIM,
     MATIC.SUSHI,
   ],
-  [ChainId.FANTOM]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.FANTOM],
-    FANTOM.DAI,
-    FANTOM.USDC,
-    FANTOM.WBTC,
-    FANTOM.WETH,
-    FANTOM.MIM,
-  ],
   [ChainId.BSC]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
     BSC.DAI,
@@ -128,26 +114,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     BSC.MIM,
   ],
   [ChainId.XDAI]: [...WRAPPED_NATIVE_ONLY[ChainId.XDAI], XDAI.USDC, XDAI.USDT, XDAI.WBTC, XDAI.WETH],
-  [ChainId.AVALANCHE]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.AVALANCHE],
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.DAI,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.MIM,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.TIME,
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.AVALANCHE],
-  ],
   [ChainId.HARMONY]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.HARMONY],
     HARMONY.DAI,
@@ -288,26 +254,6 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     MATIC.DAI,
   ],
-  [ChainId.FANTOM]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.FANTOM],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.FANTOM],
-    // @ts-ignore TYPE NEEDS FIXING
-    FANTOM.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    FANTOM.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    FANTOM.MIM,
-    // @ts-ignore TYPE NEEDS FIXING
-    FANTOM.ICE,
-    // @ts-ignore TYPE NEEDS FIXING
-    FANTOM.SPELL,
-    // @ts-ignore TYPE NEEDS FIXING
-    FANTOM.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    FANTOM.DAI,
-  ],
   [ChainId.BSC]: [
     // @ts-ignore TYPE NEEDS FIXING
     ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
@@ -347,30 +293,6 @@ export const COMMON_BASES: ChainTokenList = {
     XDAI.USDT,
     // @ts-ignore TYPE NEEDS FIXING
     XDAI.GNO,
-  ],
-  [ChainId.AVALANCHE]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.AVALANCHE],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.AVALANCHE],
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.ICE,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.MIM,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.SPELL,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.WMEMO,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.DAI,
   ],
   [ChainId.HARMONY]: [
     // @ts-ignore TYPE NEEDS FIXING
@@ -511,14 +433,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     MATIC.WETH,
     MATIC.USDT,
   ],
-  [ChainId.FANTOM]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.FANTOM],
-    FANTOM.DAI,
-    FANTOM.USDC,
-    FANTOM.WBTC,
-    FANTOM.WETH,
-    FANTOM.MIM,
-  ],
   [ChainId.BSC]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
     BSC.DAI,
@@ -530,26 +444,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     BSC.MIM,
   ],
   [ChainId.XDAI]: [...WRAPPED_NATIVE_ONLY[ChainId.XDAI], XDAI.USDC, XDAI.USDT, XDAI.WBTC, XDAI.WETH],
-  [ChainId.AVALANCHE]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.AVALANCHE],
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.DAI,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.MIM,
-    // @ts-ignore TYPE NEEDS FIXING
-    AVALANCHE.TIME,
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.AVALANCHE],
-  ],
   [ChainId.HARMONY]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.HARMONY],
     HARMONY.DAI,
