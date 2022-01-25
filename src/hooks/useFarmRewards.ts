@@ -1,6 +1,6 @@
 import { getAddress } from '@ethersproject/address'
 import { ChainId, Currency, NATIVE, SUSHI, Token } from '@sushiswap/core-sdk'
-import { ARBITRUM_TOKENS, MATIC_TOKENS, XDAI_TOKENS } from 'app/config/tokens'
+import { MATIC_TOKENS, XDAI_TOKENS } from 'app/config/tokens'
 import { Chef, PairType } from 'app/features/onsen/enum'
 import { usePositions } from 'app/features/onsen/hooks'
 import { aprToApy } from 'app/functions/convert'
@@ -274,30 +274,6 @@ export default function useFarmRewards() {
           }
         }
 
-        if (chainId === ChainId.ARBITRUM && ['9', '11'].includes(pool.id)) {
-          rewards[1] = {
-            currency: ARBITRUM_TOKENS.SPELL,
-            rewardPerBlock,
-            rewardPerDay,
-            rewardPrice: spellPrice,
-          }
-        }
-        if (chainId === ChainId.ARBITRUM && ['12'].includes(pool.id)) {
-          rewards[1] = {
-            currency: ARBITRUM_TOKENS.gOHM,
-            rewardPerBlock,
-            rewardPerDay,
-            rewardPrice: ohmPrice,
-          }
-        }
-        if (chainId === ChainId.ARBITRUM && ['13'].includes(pool.id)) {
-          rewards[1] = {
-            currency: ARBITRUM_TOKENS.MAGIC,
-            rewardPerBlock,
-            rewardPerDay,
-            rewardPrice: magicPrice,
-          }
-        }
         if (chainId === ChainId.MATIC && ['47'].includes(pool.id)) {
           const rewardTokenPerSecond = 0.00000462962963
           const rewardTokenPerBlock = rewardTokenPerSecond * averageBlockTime

@@ -1,7 +1,6 @@
 // a list of tokens by chain
 import { ChainId, SUSHI, Token, WNATIVE } from '@sushiswap/core-sdk'
 
-import * as ARBITRUM from './tokens/arbitrum'
 import * as AVALANCHE from './tokens/avalanche'
 import * as BSC from './tokens/bsc'
 import * as CELO from './tokens/celo'
@@ -55,8 +54,6 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
   [ChainId.XDAI]: [WNATIVE[ChainId.XDAI]],
   [ChainId.BSC]: [WNATIVE[ChainId.BSC]],
   [ChainId.BSC_TESTNET]: [WNATIVE[ChainId.BSC_TESTNET]],
-  [ChainId.ARBITRUM]: [WNATIVE[ChainId.ARBITRUM]],
-  [ChainId.ARBITRUM_TESTNET]: [WNATIVE[ChainId.ARBITRUM_TESTNET]],
   [ChainId.MOONBEAM_TESTNET]: [WNATIVE[ChainId.MOONBEAM_TESTNET]],
   [ChainId.AVALANCHE]: [WNATIVE[ChainId.AVALANCHE]],
   [ChainId.AVALANCHE_TESTNET]: [WNATIVE[ChainId.AVALANCHE_TESTNET]],
@@ -129,13 +126,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     BSC.BTCB,
     BSC.WETH,
     BSC.MIM,
-  ],
-  [ChainId.ARBITRUM]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.ARBITRUM],
-    ARBITRUM.WBTC,
-    ARBITRUM.USDC,
-    ARBITRUM.USDT,
-    ARBITRUM.MIM,
   ],
   [ChainId.XDAI]: [...WRAPPED_NATIVE_ONLY[ChainId.XDAI], XDAI.USDC, XDAI.USDT, XDAI.WBTC, XDAI.WETH],
   [ChainId.AVALANCHE]: [
@@ -342,24 +332,6 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     BSC.USD,
   ],
-  [ChainId.ARBITRUM]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.ARBITRUM],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.ARBITRUM],
-    // @ts-ignore TYPE NEEDS FIXING
-    ARBITRUM.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    ARBITRUM.MIM,
-    // @ts-ignore TYPE NEEDS FIXING
-    ARBITRUM.SPELL,
-    // @ts-ignore TYPE NEEDS FIXING
-    ARBITRUM.ICE,
-    // @ts-ignore TYPE NEEDS FIXING
-    ARBITRUM.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    ARBITRUM.USDT,
-  ],
   [ChainId.XDAI]: [
     // @ts-ignore TYPE NEEDS FIXING
     ...WRAPPED_NATIVE_ONLY[ChainId.XDAI],
@@ -556,13 +528,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     BSC.BTCB,
     BSC.WETH,
     BSC.MIM,
-  ],
-  [ChainId.ARBITRUM]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.ARBITRUM],
-    ARBITRUM.WBTC,
-    ARBITRUM.USDC,
-    ARBITRUM.USDT,
-    ARBITRUM.MIM,
   ],
   [ChainId.XDAI]: [...WRAPPED_NATIVE_ONLY[ChainId.XDAI], XDAI.USDC, XDAI.USDT, XDAI.WBTC, XDAI.WETH],
   [ChainId.AVALANCHE]: [
