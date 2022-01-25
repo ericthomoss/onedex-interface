@@ -1,6 +1,5 @@
 import { getAddress } from '@ethersproject/address'
 import { ChainId, Currency, NATIVE, SUSHI, Token } from '@sushiswap/core-sdk'
-import { MATIC_TOKENS } from 'app/config/tokens'
 import { Chef, PairType } from 'app/features/onsen/enum'
 import { usePositions } from 'app/features/onsen/hooks'
 import { aprToApy } from 'app/functions/convert'
@@ -265,18 +264,6 @@ export default function useFarmRewards() {
           if (chainId in reward) {
             // @ts-ignore TYPE NEEDS FIXING
             rewards[1] = reward[chainId]
-          }
-        }
-
-        if (chainId === ChainId.MATIC && ['47'].includes(pool.id)) {
-          const rewardTokenPerSecond = 0.00000462962963
-          const rewardTokenPerBlock = rewardTokenPerSecond * averageBlockTime
-          const rewardTokenPerDay = 0.4
-          rewards[1] = {
-            currency: MATIC_TOKENS.gOHM,
-            rewardPerBlock: rewardTokenPerBlock,
-            rewardPerDay: rewardTokenPerDay,
-            rewardPrice: ohmPrice,
           }
         }
       } else if (pool.chef === Chef.OLD_FARMS) {

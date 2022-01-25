@@ -7,7 +7,6 @@ import * as ETHEREUM from './tokens/ethereum'
 import * as FUSE from './tokens/fuse'
 import * as HARMONY from './tokens/harmony'
 import * as HECO from './tokens/heco'
-import * as MATIC from './tokens/matic'
 import * as MOONRIVER from './tokens/moonriver'
 import * as OKEX from './tokens/okex'
 import * as PALM from './tokens/palm'
@@ -44,8 +43,6 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
   [ChainId.RINKEBY]: [WNATIVE[ChainId.RINKEBY]],
   [ChainId.GÖRLI]: [WNATIVE[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WNATIVE[ChainId.KOVAN]],
-  [ChainId.MATIC]: [WNATIVE[ChainId.MATIC]],
-  [ChainId.MATIC_TESTNET]: [WNATIVE[ChainId.MATIC_TESTNET]],
   [ChainId.BSC]: [WNATIVE[ChainId.BSC]],
   [ChainId.BSC_TESTNET]: [WNATIVE[ChainId.BSC_TESTNET]],
   [ChainId.MOONBEAM_TESTNET]: [WNATIVE[ChainId.MOONBEAM_TESTNET]],
@@ -90,16 +87,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     ETHEREUM.MIM,
     // @ts-ignore TYPE NEEDS FIXING
     SUSHI[ChainId.ETHEREUM],
-  ],
-  [ChainId.MATIC]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.MATIC],
-    MATIC.USDC,
-    MATIC.WBTC,
-    MATIC.DAI,
-    MATIC.WETH,
-    MATIC.USDT,
-    MATIC.MIM,
-    MATIC.SUSHI,
   ],
   [ChainId.BSC]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
@@ -179,15 +166,6 @@ export const ADDITIONAL_BASES: {
     [ETHEREUM.SPANK.address]: [ETHEREUM.RAI],
     [ETHEREUM.DOLA.address]: [ETHEREUM.INV],
   },
-  [ChainId.MATIC]: {
-    [MATIC.FRAX.address]: [MATIC.FXS],
-    [MATIC.FXS.address]: [MATIC.FRAX],
-    [MATIC.DRAX.address]: [MATIC.DMAGIC],
-    [MATIC.AXMATIC.address]: [MATIC.DMAGIC],
-    [MATIC.BCT.address]: [MATIC.KLIMA],
-    [MATIC.KLIMA.address]: [MATIC.BCT],
-    //[MATIC.DMAGIC.address]: [MATIC.DRAX, MATIC.AXMATIC],
-  },
 }
 
 /**
@@ -199,9 +177,6 @@ export const CUSTOM_BASES: {
 } = {
   [ChainId.ETHEREUM]: {
     [ETHEREUM.AMPL.address]: [ETHEREUM.DAI, WNATIVE[ChainId.ETHEREUM]],
-  },
-  [ChainId.MATIC]: {
-    [MATIC.TEL.address]: [MATIC.SUSHI, MATIC.AAVE],
   },
 }
 
@@ -230,26 +205,6 @@ export const COMMON_BASES: ChainTokenList = {
     ETHEREUM.DAI,
     // @ts-ignore TYPE NEEDS FIXING
     ETHEREUM.OHM_V2,
-  ],
-  [ChainId.MATIC]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.MATIC],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.MATIC],
-    // @ts-ignore TYPE NEEDS FIXING
-    MATIC.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    MATIC.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    MATIC.MIM,
-    // @ts-ignore TYPE NEEDS FIXING
-    MATIC.ICE,
-    // @ts-ignore TYPE NEEDS FIXING
-    MATIC.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    MATIC.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    MATIC.DAI,
   ],
   [ChainId.BSC]: [
     // @ts-ignore TYPE NEEDS FIXING
@@ -404,15 +359,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     ETHEREUM.OHM_V1,
     ETHEREUM.OHM_V2,
     ETHEREUM.MIM,
-  ],
-  [ChainId.MATIC]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.MATIC],
-    MATIC.USDC,
-    MATIC.WBTC,
-    MATIC.MIM,
-    MATIC.DAI,
-    MATIC.WETH,
-    MATIC.USDT,
   ],
   [ChainId.BSC]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
