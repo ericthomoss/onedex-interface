@@ -212,59 +212,24 @@ export default function useFarmRewards() {
         const rewardPerDay = rewardPerBlock * blocksPerDay
 
         const reward = {
-          [ChainId.MATIC]: {
-            currency: NATIVE[ChainId.MATIC],
-            rewardPerBlock,
-            rewardPerDay: rewardPerSecond * 86400,
-            rewardPrice: maticPrice,
-          },
           [ChainId.HARMONY]: {
             currency: NATIVE[ChainId.HARMONY],
             rewardPerBlock,
             rewardPerDay: rewardPerSecond * 86400,
             rewardPrice: onePrice,
           },
-          [ChainId.CELO]: {
-            currency: NATIVE[ChainId.CELO],
-            rewardPerBlock,
-            rewardPerDay: rewardPerSecond * 86400,
-            rewardPrice: celoPrice,
-          },
-          [ChainId.MOONRIVER]: {
-            currency: NATIVE[ChainId.MOONRIVER],
-            rewardPerBlock,
-            rewardPerDay: rewardPerSecond * 86400,
-            rewardPrice: movrPrice,
-          },
-          [ChainId.FUSE]: {
-            currency: NATIVE[ChainId.FUSE],
-            rewardPerBlock,
-            rewardPerDay: rewardPerSecond * 86400,
-            rewardPrice: fusePrice,
-          },
-          [ChainId.FANTOM]: {
-            currency: NATIVE[ChainId.FANTOM],
-            rewardPerBlock,
-            rewardPerDay: rewardPerSecond * 86400,
-            rewardPrice: fantomPrice,
-          },
         }
 
-        if (chainId === ChainId.FUSE) {
-          // Secondary reward only
-          rewards[0] = reward[ChainId.FUSE]
-        } else {
+        // @ts-ignore TYPE NEEDS FIXING
+        rewards[0] = {
+          ...defaultReward,
+          rewardPerBlock: sushiPerBlock,
+          rewardPerDay: sushiPerDay,
+        }
+        // @ts-ignore TYPE NEEDS FIXING
+        if (chainId in reward) {
           // @ts-ignore TYPE NEEDS FIXING
-          rewards[0] = {
-            ...defaultReward,
-            rewardPerBlock: sushiPerBlock,
-            rewardPerDay: sushiPerDay,
-          }
-          // @ts-ignore TYPE NEEDS FIXING
-          if (chainId in reward) {
-            // @ts-ignore TYPE NEEDS FIXING
-            rewards[1] = reward[chainId]
-          }
+          rewards[1] = reward[chainId]
         }
       } else if (pool.chef === Chef.OLD_FARMS) {
         const sushiPerSecond = ((pool.allocPoint / pool.miniChef.totalAllocPoint) * pool.miniChef.sushiPerSecond) / 1e18
@@ -280,26 +245,11 @@ export default function useFarmRewards() {
 
         const rewardPerDay = rewardPerBlock * blocksPerDay
 
-        const reward = {
-          [ChainId.CELO]: {
-            currency: NATIVE[ChainId.CELO],
-            rewardPerBlock,
-            rewardPerDay: rewardPerSecond * 86400,
-            rewardPrice: celoPrice,
-          },
-        }
-
         // @ts-ignore TYPE NEEDS FIXING
         rewards[0] = {
           ...defaultReward,
           rewardPerBlock: sushiPerBlock,
           rewardPerDay: sushiPerDay,
-        }
-
-        // @ts-ignore TYPE NEEDS FIXING
-        if (chainId in reward) {
-          // @ts-ignore TYPE NEEDS FIXING
-          rewards[1] = reward[chainId]
         }
       }
 

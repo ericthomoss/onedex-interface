@@ -1,3 +1,4 @@
+/* eslint-disable unused-imports/no-unused-imports */
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import { ChainId } from '@sushiswap/core-sdk'
@@ -87,18 +88,6 @@ export default function Farm(): JSX.Element {
             <OnsenFilter />
           </div>
           <FarmList farms={result} term={term} />
-          {chainId && chainId === ChainId.CELO && (
-            <Typography variant="xs" weight={700} className="text-secondary italic text-center">
-              {i18n._(t`Users can now bridge back to Celo using a new version of Optics.`)}{' '}
-              <ExternalLink
-                color="blue"
-                id={`celo-optics-info-link`}
-                href="https://medium.com/@0xJiro/celo-farms-update-migrating-to-the-optics-v2-bridge-e8075d1c9ea"
-              >
-                {i18n._(t`Click for more info on Optics V1 Migration.`)}
-              </ExternalLink>
-            </Typography>
-          )}
         </div>
       </TridentBody>
     </>
