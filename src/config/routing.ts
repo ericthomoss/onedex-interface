@@ -1,7 +1,6 @@
 // a list of tokens by chain
 import { ChainId, SUSHI, Token, WNATIVE } from '@sushiswap/core-sdk'
 
-import * as BSC from './tokens/bsc'
 import * as HARMONY from './tokens/harmony'
 
 type ChainTokenList = {
@@ -27,16 +26,6 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WRAPPED_NATIVE_ONLY,
-  [ChainId.BSC]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
-    BSC.DAI,
-    BSC.USD,
-    BSC.USDC,
-    BSC.USDT,
-    BSC.BTCB,
-    BSC.WETH,
-    BSC.MIM,
-  ],
   [ChainId.HARMONY]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.HARMONY],
     HARMONY.DAI,
@@ -63,30 +52,6 @@ export const CUSTOM_BASES: {
  * Shows up in the currency select for swap and add liquidity
  */
 export const COMMON_BASES: ChainTokenList = {
-  [ChainId.BSC]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.BSC],
-    // @ts-ignore TYPE NEEDS FIXING
-    BSC.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    BSC.BTCB,
-    // @ts-ignore TYPE NEEDS FIXING
-    BSC.MIM,
-    // @ts-ignore TYPE NEEDS FIXING
-    BSC.SPELL,
-    // @ts-ignore TYPE NEEDS FIXING
-    BSC.ICE,
-    // @ts-ignore TYPE NEEDS FIXING
-    BSC.DAI,
-    // @ts-ignore TYPE NEEDS FIXING
-    BSC.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    BSC.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    BSC.USD,
-  ],
   [ChainId.HARMONY]: [
     // @ts-ignore TYPE NEEDS FIXING
     ...WRAPPED_NATIVE_ONLY[ChainId.HARMONY],
@@ -108,16 +73,6 @@ export const COMMON_BASES: ChainTokenList = {
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WRAPPED_NATIVE_ONLY,
-  [ChainId.BSC]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
-    BSC.DAI,
-    BSC.USD,
-    BSC.USDC,
-    BSC.USDT,
-    BSC.BTCB,
-    BSC.WETH,
-    BSC.MIM,
-  ],
   [ChainId.HARMONY]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.HARMONY],
     HARMONY.DAI,
