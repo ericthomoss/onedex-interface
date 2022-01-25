@@ -10,7 +10,6 @@ import * as HECO from './tokens/heco'
 import * as MOONRIVER from './tokens/moonriver'
 import * as OKEX from './tokens/okex'
 import * as PALM from './tokens/palm'
-import * as TELOS from './tokens/telos'
 
 type ChainTokenList = {
   readonly [chainId: number]: Token[]
@@ -56,7 +55,6 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
   [ChainId.MOONRIVER]: [WNATIVE[ChainId.MOONRIVER]],
   [ChainId.PALM]: [WNATIVE[ChainId.PALM]],
   [ChainId.FUSE]: [WNATIVE[ChainId.FUSE]],
-  [ChainId.TELOS]: [WNATIVE[ChainId.TELOS]],
 }
 
 // used to construct intermediary pairs for trading
@@ -132,7 +130,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ],
   [ChainId.PALM]: [...WRAPPED_NATIVE_ONLY[ChainId.PALM], PALM.WETH, PALM.DAI],
   [ChainId.FUSE]: [...WRAPPED_NATIVE_ONLY[ChainId.FUSE], FUSE.USDC, FUSE.USDT, FUSE.WBTC, FUSE.WETH, FUSE.DAI],
-  [ChainId.TELOS]: [...WRAPPED_NATIVE_ONLY[ChainId.TELOS], TELOS.USDC, TELOS.USDT, TELOS.WETH, TELOS.WBTC],
 }
 
 export const ADDITIONAL_BASES: {
@@ -331,20 +328,6 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     FUSE.DAI,
   ],
-  [ChainId.TELOS]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.TELOS],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.TELOS],
-    // @ts-ignore TYPE NEEDS FIXING
-    TELOS.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    TELOS.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    TELOS.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    TELOS.USDT,
-  ],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -402,7 +385,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ],
   [ChainId.PALM]: [...WRAPPED_NATIVE_ONLY[ChainId.PALM], PALM.WETH, PALM.DAI],
   [ChainId.FUSE]: [...WRAPPED_NATIVE_ONLY[ChainId.FUSE], FUSE.USDC, FUSE.USDT, FUSE.WBTC, FUSE.WETH, FUSE.DAI],
-  [ChainId.TELOS]: [...WRAPPED_NATIVE_ONLY[ChainId.TELOS], TELOS.USDC, TELOS.USDT, TELOS.WETH, TELOS.WBTC],
 }
 
 export const PINNED_PAIRS: {
