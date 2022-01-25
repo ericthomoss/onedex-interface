@@ -75,14 +75,8 @@ const OnsenFilter = () => {
       ) : (
         <MenuLink onClick={toggleWalletModal} label={i18n._(t`Your Farms`)} />
       ),
-      [FarmFilter.Kashi]:
-        chainId === ChainId.ETHEREUM ? (
-          <MenuLink href={'/farm?filter=kashi'} label={i18n._(t`Kashi Farms`)} />
-        ) : undefined,
-      [FarmFilter.Sushi]:
-        chainId === ChainId.ETHEREUM ? (
-          <MenuLink href={'/farm?filter=sushi'} label={i18n._(t`SushiSwap Farms`)} />
-        ) : undefined,
+      [FarmFilter.Kashi]: undefined,
+      [FarmFilter.Sushi]: undefined,
       // @ts-ignore TYPE NEEDS FIXING
       [FarmFilter.Old]: [ChainId.CELO].includes(chainId) ? (
         <MenuLink href={'/farm?filter=old'} label={i18n._(t`Old Farms`)} />
