@@ -2,12 +2,8 @@
 import { ChainId, SUSHI, Token, WNATIVE } from '@sushiswap/core-sdk'
 
 import * as BSC from './tokens/bsc'
-import * as CELO from './tokens/celo'
 import * as ETHEREUM from './tokens/ethereum'
-import * as FUSE from './tokens/fuse'
 import * as HARMONY from './tokens/harmony'
-import * as HECO from './tokens/heco'
-import * as PALM from './tokens/palm'
 
 type ChainTokenList = {
   readonly [chainId: number]: Token[]
@@ -47,9 +43,7 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
   [ChainId.HECO_TESTNET]: [WNATIVE[ChainId.HECO_TESTNET]],
   [ChainId.HARMONY]: [WNATIVE[ChainId.HARMONY]],
   [ChainId.HARMONY_TESTNET]: [WNATIVE[ChainId.HARMONY_TESTNET]],
-  [ChainId.CELO]: [WNATIVE[ChainId.CELO]],
   [ChainId.PALM]: [WNATIVE[ChainId.PALM]],
-  [ChainId.FUSE]: [WNATIVE[ChainId.FUSE]],
 }
 
 // used to construct intermediary pairs for trading
@@ -99,21 +93,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     HARMONY.WBTC,
     HARMONY.WETH,
   ],
-  [ChainId.HECO]: [...WRAPPED_NATIVE_ONLY[ChainId.HECO], HECO.DAI, HECO.USDC, HECO.USDT, HECO.WBTC, HECO.WETH],
-  [ChainId.CELO]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.CELO],
-    CELO.cETH,
-    CELO.mCUSD,
-    CELO.mCELO,
-    CELO.mcEURO,
-    CELO.cUSD,
-    CELO.cEURO,
-    CELO.cBTC,
-    CELO.WETH,
-    CELO.WBTC,
-  ],
-  [ChainId.PALM]: [...WRAPPED_NATIVE_ONLY[ChainId.PALM], PALM.WETH, PALM.DAI],
-  [ChainId.FUSE]: [...WRAPPED_NATIVE_ONLY[ChainId.FUSE], FUSE.USDC, FUSE.USDT, FUSE.WBTC, FUSE.WETH, FUSE.DAI],
 }
 
 export const ADDITIONAL_BASES: {
@@ -227,55 +206,6 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     HARMONY.DAI,
   ],
-  [ChainId.HECO]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.HECO],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.HECO],
-    // @ts-ignore TYPE NEEDS FIXING
-    HECO.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    HECO.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    HECO.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    HECO.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    HECO.DAI,
-  ],
-  [ChainId.CELO]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.CELO],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.CELO],
-    // @ts-ignore TYPE NEEDS FIXING
-    CELO.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    CELO.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    CELO.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    CELO.cUSD,
-    // @ts-ignore TYPE NEEDS FIXING
-    CELO.cEURO,
-  ],
-  [ChainId.PALM]: [...WRAPPED_NATIVE_ONLY[ChainId.PALM], PALM.WETH, PALM.DAI],
-  [ChainId.FUSE]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.FUSE],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.FUSE],
-    // @ts-ignore TYPE NEEDS FIXING
-    FUSE.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    FUSE.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    FUSE.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    FUSE.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    FUSE.DAI,
-  ],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -309,19 +239,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     HARMONY.WBTC,
     HARMONY.WETH,
   ],
-  [ChainId.HECO]: [...WRAPPED_NATIVE_ONLY[ChainId.HECO], HECO.DAI, HECO.USDC, HECO.USDT, HECO.WBTC, HECO.WETH],
-  [ChainId.CELO]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.CELO],
-    CELO.cETH,
-    CELO.mCUSD,
-    CELO.mCELO,
-    CELO.mcEURO,
-    CELO.cUSD,
-    CELO.cEURO,
-    CELO.cBTC,
-  ],
-  [ChainId.PALM]: [...WRAPPED_NATIVE_ONLY[ChainId.PALM], PALM.WETH, PALM.DAI],
-  [ChainId.FUSE]: [...WRAPPED_NATIVE_ONLY[ChainId.FUSE], FUSE.USDC, FUSE.USDT, FUSE.WBTC, FUSE.WETH, FUSE.DAI],
 }
 
 export const PINNED_PAIRS: {
