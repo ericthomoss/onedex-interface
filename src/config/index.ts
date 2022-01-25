@@ -2,7 +2,7 @@ import { ChainId } from '@sushiswap/core-sdk'
 
 const config = {
   // Global configuration
-  defaultChainId: ChainId.ETHEREUM,
+  defaultChainId: ChainId.HARMONY_TESTNET, //TODO - Change default chain Id.
   blockedAddresses: [
     // SDN OFAC addresses
     '0x7F367cC41522cE07553e823bf3be79A889DEbe1B',
