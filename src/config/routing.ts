@@ -12,7 +12,6 @@ import * as MOONRIVER from './tokens/moonriver'
 import * as OKEX from './tokens/okex'
 import * as PALM from './tokens/palm'
 import * as TELOS from './tokens/telos'
-import * as XDAI from './tokens/xdai'
 
 type ChainTokenList = {
   readonly [chainId: number]: Token[]
@@ -47,7 +46,6 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
   [ChainId.KOVAN]: [WNATIVE[ChainId.KOVAN]],
   [ChainId.MATIC]: [WNATIVE[ChainId.MATIC]],
   [ChainId.MATIC_TESTNET]: [WNATIVE[ChainId.MATIC_TESTNET]],
-  [ChainId.XDAI]: [WNATIVE[ChainId.XDAI]],
   [ChainId.BSC]: [WNATIVE[ChainId.BSC]],
   [ChainId.BSC_TESTNET]: [WNATIVE[ChainId.BSC_TESTNET]],
   [ChainId.MOONBEAM_TESTNET]: [WNATIVE[ChainId.MOONBEAM_TESTNET]],
@@ -113,7 +111,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     BSC.WETH,
     BSC.MIM,
   ],
-  [ChainId.XDAI]: [...WRAPPED_NATIVE_ONLY[ChainId.XDAI], XDAI.USDC, XDAI.USDT, XDAI.WBTC, XDAI.WETH],
   [ChainId.HARMONY]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.HARMONY],
     HARMONY.DAI,
@@ -278,22 +275,6 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     BSC.USD,
   ],
-  [ChainId.XDAI]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.XDAI],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.XDAI],
-    // @ts-ignore TYPE NEEDS FIXING
-    XDAI.WETH,
-    // @ts-ignore TYPE NEEDS FIXING
-    XDAI.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    XDAI.USDC,
-    // @ts-ignore TYPE NEEDS FIXING
-    XDAI.USDT,
-    // @ts-ignore TYPE NEEDS FIXING
-    XDAI.GNO,
-  ],
   [ChainId.HARMONY]: [
     // @ts-ignore TYPE NEEDS FIXING
     ...WRAPPED_NATIVE_ONLY[ChainId.HARMONY],
@@ -443,7 +424,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     BSC.WETH,
     BSC.MIM,
   ],
-  [ChainId.XDAI]: [...WRAPPED_NATIVE_ONLY[ChainId.XDAI], XDAI.USDC, XDAI.USDT, XDAI.WBTC, XDAI.WETH],
   [ChainId.HARMONY]: [
     ...WRAPPED_NATIVE_ONLY[ChainId.HARMONY],
     HARMONY.DAI,

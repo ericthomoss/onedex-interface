@@ -1,6 +1,6 @@
 import { getAddress } from '@ethersproject/address'
 import { ChainId, Currency, NATIVE, SUSHI, Token } from '@sushiswap/core-sdk'
-import { MATIC_TOKENS, XDAI_TOKENS } from 'app/config/tokens'
+import { MATIC_TOKENS } from 'app/config/tokens'
 import { Chef, PairType } from 'app/features/onsen/enum'
 import { usePositions } from 'app/features/onsen/hooks'
 import { aprToApy } from 'app/functions/convert'
@@ -218,12 +218,6 @@ export default function useFarmRewards() {
             rewardPerBlock,
             rewardPerDay: rewardPerSecond * 86400,
             rewardPrice: maticPrice,
-          },
-          [ChainId.XDAI]: {
-            currency: XDAI_TOKENS.GNO,
-            rewardPerBlock,
-            rewardPerDay: rewardPerSecond * 86400,
-            rewardPrice: gnoPrice,
           },
           [ChainId.HARMONY]: {
             currency: NATIVE[ChainId.HARMONY],
