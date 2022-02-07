@@ -31,12 +31,14 @@ const Desktop: FC = () => {
     <>
       <header className="fixed z-20 w-full hidden lg:block" style={{ height: HEADER_HEIGHT }}>
         <nav className={NAV_CLASS}>
-          <Container maxWidth="7xl" className="mx-auto">
+          <Container maxWidth="full" className="mx-auto">
             <div className="flex gap-4 px-6 items-center justify-between">
               <div className="flex gap-4">
                 <div className="flex w-6 mr-4 items-center">
                   <Image src="https://app.sushi.com/images/logo.svg" alt="Sushi logo" width="24px" height="24px" />
                 </div>
+              </div>
+              <div className="flex gap-4" style={{ marginLeft: '14rem' }}>
                 {menu.map((node) => {
                   return <NavigationItem node={node} key={node.key} />
                 })}

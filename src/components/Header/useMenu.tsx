@@ -1,8 +1,8 @@
-import { GlobeIcon, SwitchVerticalIcon, TrendingUpIcon } from '@heroicons/react/outline'
+import { SwitchVerticalIcon, TrendingUpIcon } from '@heroicons/react/outline'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import { SUSHI_ADDRESS } from '@sushiswap/core-sdk'
-import { PoolIcon, RocketIcon, WalletIcon } from 'app/components/Icon'
+import { PoolIcon, WalletIcon } from 'app/components/Icon'
 import { Feature } from 'app/enums'
 import { featureEnabled } from 'app/functions'
 import { useActiveWeb3React } from 'app/services/web3'
@@ -93,7 +93,7 @@ const useMenu: UseMenu = () => {
       })
     }
 
-    const exploreMenu: MenuItemLeaf[] = []
+    /*const exploreMenu: MenuItemLeaf[] = []
     if (featureEnabled(Feature.VESTING, chainId)) {
       exploreMenu.push({
         key: 'stake',
@@ -116,7 +116,7 @@ const useMenu: UseMenu = () => {
         title: i18n._(t`Yield Strategies`),
         link: '/tools/inari',
       })
-    }
+    }*/
 
     const mainItems: Menu = [tradeMenu]
 
@@ -128,13 +128,14 @@ const useMenu: UseMenu = () => {
         icon: <PoolIcon width={20} />,
       })
 
-    if (exploreMenu.length > 0)
+    /*if (exploreMenu.length > 0) {
       mainItems.push({
         key: 'explore',
         title: i18n._(t`Explore`),
         items: exploreMenu,
         icon: <GlobeIcon width={20} />,
       })
+    }*/
 
     if (featureEnabled(Feature.LIQUIDITY_MINING, chainId)) {
       const farmItems = {
@@ -157,7 +158,7 @@ const useMenu: UseMenu = () => {
       mainItems.push(farmItems)
     }
 
-    if (featureEnabled(Feature.KASHI, chainId)) {
+    /*if (featureEnabled(Feature.KASHI, chainId)) {
       mainItems.push({
         key: 'lending',
         title: i18n._(t`Lending`),
@@ -195,9 +196,9 @@ const useMenu: UseMenu = () => {
           },
         ],
       })
-    }
+    }*/
 
-    let analyticsMenu: MenuItem = {
+    /*let analyticsMenu: MenuItem = {
       key: 'analytics',
       title: i18n._(t`Analytics`),
       icon: <TrendingUpIcon width={20} />,
@@ -235,7 +236,14 @@ const useMenu: UseMenu = () => {
 
     if (featureEnabled(Feature.ANALYTICS, chainId)) {
       mainItems.push(analyticsMenu)
-    }
+    }*/
+
+    mainItems.push({
+      key: 'analytics',
+      title: i18n._(t`Analytics`),
+      link: '/analytics/dashboard',
+      icon: <WalletIcon width={20} />,
+    })
 
     mainItems.push({
       key: 'balances',

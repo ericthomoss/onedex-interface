@@ -50,7 +50,7 @@ const SwapAssetPanel = ({
   currencies,
 }: SwapAssetPanel) => {
   return (
-    <div className="rounded-[14px] border border-dark-700 hover:border-dark-600 bg-dark-900 p-3 flex flex-col gap-4">
+    <div className="rounded-[14px] border border-dark-700 hover:border-dark-600 bg-neutral-800 p-3 flex flex-col gap-4">
       {header({
         disabled,
         onChange,
@@ -208,7 +208,7 @@ const SwapAssetPanelHeader: FC<
   const trigger = currency ? (
     <div
       id={id}
-      className="flex items-center gap-2 px-2 py-1 rounded-full shadow-md cursor-pointer text-high-emphesis bg-dark-800 hover:bg-dark-700"
+      className="flex items-center gap-2 px-2 py-1 rounded-full shadow-md cursor-pointer text-high-emphesis bg-neutral-700 hover:bg-dark-700"
     >
       <CurrencyLogo currency={currency} className="!rounded-full overflow-hidden" size={20} />
       <Typography variant="sm" className="!text-xl" weight={700}>
