@@ -276,7 +276,7 @@ export function useDefaultsFromURLSearch():
       outputCurrencyId: string | undefined
     }
   | undefined {
-  const { chainId } = useActiveWeb3React()
+  const { account, chainId } = useActiveWeb3React()
   const dispatch = useAppDispatch()
   const parsedQs = useParsedQueryString()
   const [expertMode] = useExpertModeManager()
@@ -291,23 +291,34 @@ export function useDefaultsFromURLSearch():
   useEffect(() => {
     if (!chainId) return
     const parsed = queryParametersToSwapState(parsedQs, chainId)
-
-    dispatch(
-      replaceSwapState({
-        typedValue: parsed.typedValue,
-        field: parsed.independentField,
-        inputCurrencyId: parsed[Field.INPUT].currencyId,
-        outputCurrencyId: parsed[Field.OUTPUT].currencyId,
-        recipient: expertMode ? parsed.recipient : undefined,
-      })
-    )
+    if (!account) {
+      dispatch(
+        replaceSwapState({
+          typedValue: parsed.typedValue,
+          field: parsed.independentField,
+          inputCurrencyId: undefined,
+          outputCurrencyId: undefined,
+          recipient: expertMode ? parsed.recipient : undefined,
+        })
+      )
+    } else {
+      dispatch(
+        replaceSwapState({
+          typedValue: parsed.typedValue,
+          field: parsed.independentField,
+          inputCurrencyId: parsed[Field.INPUT].currencyId,
+          outputCurrencyId: parsed[Field.OUTPUT].currencyId,
+          recipient: expertMode ? parsed.recipient : undefined,
+        })
+      )
+    }
 
     setResult({
       inputCurrencyId: parsed[Field.INPUT].currencyId,
       outputCurrencyId: parsed[Field.OUTPUT].currencyId,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, chainId])
+  }, [dispatch, account, chainId])
 
   return result
 }
