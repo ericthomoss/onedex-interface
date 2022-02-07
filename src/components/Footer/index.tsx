@@ -18,13 +18,17 @@ const Footer = () => {
   return (
     <div className="z-10 w-full mt-20">
       <Container maxWidth="full" className="mx-auto bg-neutral-700">
-        <div className="flex gap-10 px-6 border-t justify-between">
+        <div className="flex gap-10 px-6 justify-between">
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-start gap-2">
               <div className="">
                 <Image src="https://app.sushi.com/images/logo.svg" alt="Sushi logo" width="28px" height="28px" />
               </div>
-              <Typography variant="xs" weight={700} className="tracking-[0.02em] scale-y-90 hover:text-high-emphesis">
+              <Typography
+                variant="xs"
+                weight={700}
+                className="tracking-[0.02em] ml-4 scale-y-90 hover:text-high-emphesis"
+              >
                 @ Copyright ONEchain. All rights reserved.
               </Typography>
             </div>
